@@ -71,8 +71,8 @@ angular.module("HelpApp", [])
 		
 		$http({
 			method: 'GET',
-			url: urlBase+ '',
-			data: self.chamado
+			url: urlBase+ 'chamados/';
+		
 		}).then(function successCallback(response){
 			self.chamados=response.data;
 			self.chamado= undefined;
