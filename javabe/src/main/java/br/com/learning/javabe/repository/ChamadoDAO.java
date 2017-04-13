@@ -16,11 +16,44 @@ public class ChamadoDAO {
 
 	private final ConexaoJDBC conexao;
 
+	
 	// poliformis using interface.
 	public ChamadoDAO() throws SQLException, ClassNotFoundException {
 		this.conexao = new ConexaoMySqlJDBC();
 	}
 
+	
+	public void TestaAi(){
+		
+		String sqlQuery = "SELECT * FROM CRMD.CTRL_PROCM WHERE ID_SIT_PROCM = 3";
+
+		 int id;
+        int idsit;
+        String titulo;
+
+		try {
+			PreparedStatement stmt = this.conexao.getConnection().prepareStatement(sqlQuery);
+		//	stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				  id = rs.getInt("ID_CTRL_PROCM");
+	                idsit= rs.getInt("ID_SIT_PROCM");
+	                
+	                titulo = rs.getString("END_RETOR");
+	                System.out.println("ROW = " + id + ": "+ idsit +" >>>" + titulo );
+			}
+
+		} catch (SQLException e) {
+			//this.conexao.rollback();
+			System.out.println(e.getMessage());
+			//throw e;
+		}
+		
+		
+	}
+	
+	
 	public Long inserir(Chamado chamado) throws SQLException, ClassNotFoundException {
 		Long id = null;
 
