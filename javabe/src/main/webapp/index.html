@@ -1,7 +1,7 @@
 <!DOCTYPE html  >
 <html ng-app="HelpApp">
 <head>
-
+<meta charset="ISO-8859-1">
 <title>Insert title 5</title>
 	<script src="resources/angular.min.js"></script>
 	<script src="resources/help.js"></script>
@@ -25,9 +25,10 @@
    <label for="mensagem">Mensagem: </label>
  <textarea rows="4" id="mensagem" data-ng-model="controller.chamado.mensagem"></textarea><br>
  
- <buttom type="button" data-ng-click="controller.salvar()" class="btn btn-blue">Salvar</buttom>
+ <div>
+ <buttom type="button"  data-ng-click="controller.salvar()" class="btn btn-blue">Salvar</buttom>
   <buttom type="button" data-ng-click="controller.chamado = undefined">Cancelar</buttom>
-  
+  </div>
  </div>
  
  
@@ -40,6 +41,7 @@
  <tr>
  <th>ID</th>
  <th>Assunto</th>
+ <th>Status</th>
  <th>Mensagens</th>
  <th>Opções</th>
   </tr>
@@ -48,11 +50,13 @@
  <tr  data-ng-repeat="chamado in controller.chamados">
  <td>{{chamado.id}}</td>
  <td>{{chamado.assunto}}</td>
+ <td>{{chamado.status}}</td>
  <td>{{chamado.mensagem}}</td>
  <td>
  	<button type="button" data-ng-click="controller.alterar(chamado)">Alterar</button>
  	<button type="button" data-ng-click="controller.deletar(chamado)">Excluir</button>
- 	<button type="button" data-ng-click="controller.concluir(chamado)">Concluir</button>
+ 	<button type="button" data-ng-click="controller.concluir(chamado)"
+ 						  data-ng-show="chamado.status !== 'FECHADO'">Concluir</button>
  
  </td>
   </tr>

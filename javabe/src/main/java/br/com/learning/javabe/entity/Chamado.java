@@ -1,6 +1,14 @@
 package br.com.learning.javabe.entity;
 
-public class Chamado {
+import java.io.Serializable;
+
+public class Chamado implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	private long id;
 	

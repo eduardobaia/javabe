@@ -1,5 +1,5 @@
 angular.module("HelpApp", [])
-.value('urlBase', 'http://localhost:8080/javabe/webapi/chamados/')
+.value('urlBase', 'http://localhost:8080/javabe/webapi/')
 .controller("ChamadoController", function($http, urlBase){
 	
 	var self= this;
@@ -52,13 +52,23 @@ angular.module("HelpApp", [])
 		}, function errorCallback (response){
 			self.ocorreuErro();
 		});
-		
+		self.activate();
 	};
 	
 	
 	
-	self.concluir = function(){
-		alert("TO DO ");
+	self.concluir = function(chamado){
+		self.chamado= chamado;
+		
+		$http({
+			method: "PUT",
+			url: urlBase+'chamados/'+ self.chamado.id+'/'
+		}).then(function sucessCallback(response){
+			self.atualizarTabela();
+		}, function errorCallback(response){
+			self.ocorreuErro();
+		});
+		
 	};
 	
 	
@@ -71,17 +81,21 @@ angular.module("HelpApp", [])
 		
 		$http({
 			method: 'GET',
-			url: urlBase+ 'chamados/';
+			url: urlBase+'chamados/'
 		
 		}).then(function successCallback(response){
 			self.chamados=response.data;
+			console.log("Entrou em sucesso "+ self.chamado.nome);
 			self.chamado= undefined;
+			
 		}, function errorCallback (response){
 			self.ocorreuErro();
+			console.log("Entrou em fracaso ");
 		});
 
 		
 	};
+	
 	
 	
 	self.activate = function (){
