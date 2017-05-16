@@ -1,4 +1,4 @@
-package br.com.learning.javabe.repository;
+package br.com.learning.javabe.jdbc.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.util.List;
 
 
 import br.com.learning.javabe.entity.Chamado;
-import br.com.learning.javabe.entity.Status;
+import br.com.learning.javabe.enumerado.Status;
 import br.com.learning.javabe.infra.ConexaoJDBC;
 import br.com.learning.javabe.infra.ConexaoMySqlJDBC;
 

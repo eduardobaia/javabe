@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import br.com.learning.javabe.entity.Chamado;
 import br.com.learning.javabe.infra.ConexaoOracleJDBC;
-import br.com.learning.javabe.repository.ChamadoDAO;
+import br.com.learning.javabe.jdbc.dao.ChamadoDAO;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package br.com.learning.javabe.entity;
+package br.com.learning.javabe.enumerado;
 
 public enum Status {
 

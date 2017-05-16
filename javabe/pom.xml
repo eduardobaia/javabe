@@ -6,7 +6,7 @@
 	<groupId>br.com.learning</groupId>
 	<artifactId>javabe</artifactId>
 	<packaging>war</packaging>
-	<version>1.5-SNAPSHOT</version>
+	<version>1.6-SNAPSHOT</version>
 	<name>javabe</name>
 
 	<build>
@@ -66,6 +66,13 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.3-1104-jdbc41</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.2.Final</version>
+		</dependency>
+		
 
 	</dependencies>
 	<properties>

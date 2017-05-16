@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import br.com.learning.javabe.entity.Chamado;
-import br.com.learning.javabe.repository.ChamadoDAO;
+import br.com.learning.javabe.jdbc.dao.ChamadoDAO;
 
 @Path("chamados")
 public class ChamadoController {
@@ -84,7 +84,7 @@ public class ChamadoController {
 	public Response update(Chamado chamado){
 
 		try {
-			chamado.setStatus(""+br.com.learning.javabe.entity.Status.PENDENTE);
+			chamado.setStatus(""+br.com.learning.javabe.enumerado.Status.PENDENTE);
 			 
 			ChamadoDAO chamadoDAO= new ChamadoDAO();
 			chamadoDAO.alterar(chamado);
@@ -124,7 +124,7 @@ public class ChamadoController {
 			ChamadoDAO chamadoDAO= new ChamadoDAO();
 			
 			Chamado c = chamadoDAO.selecionar(id);
-			c.setStatus(""+br.com.learning.javabe.entity.Status.FECHADO);
+			c.setStatus(""+br.com.learning.javabe.enumerado.Status.FECHADO);
 			chamadoDAO.alterar(c);
 			
 			return Response.status(Response.Status.OK).build();
